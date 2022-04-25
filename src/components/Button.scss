@@ -1,0 +1,22 @@
+.button {
+  cursor: pointer;
+  padding: 5px 10px;
+
+  background-color: #4493E3;
+  border: 2px solid #577DFA;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #4944E3;
+  }
+  &:active {
+    background-color: #824CFD;
+
+    > .button-title {
+      color:#4CD2FD;
+    }
+  }
+
+  > .button-title {
+    color: #824CFD;
+}
