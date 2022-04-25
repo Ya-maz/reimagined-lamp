@@ -1,14 +1,39 @@
+@use "sass:meta";
+
+@mixin button-size($padding-y, $padding-x, $border-radius, $font-size) {
+  padding: $padding-y $padding-x;
+  border-radius: $border-radius;
+
+  > .button-title {
+    font-size: $font-size;
+    }
+}
+
+@mixin hover {
+  &:not([disabled]):hover {
+    @content("disabled");
+  }
+  &:hover {
+    @content("not-disabled")
+  }
+}
 .button {
   cursor: pointer;
-  padding: 5px 10px;
 
-  background-color: #4493E3;
+  background-color: #fff;
   border: 2px solid #577DFA;
   border-radius: 5px;
 
-  &:hover {
+  @include hover() using ($type) {
     background-color: #4944E3;
+    @if $type == "disabled" {
+      background-color: green;
+    }
+    @if $type == "not-disabled" {
+      background-color: red;  
+    }
   }
+
   &:active {
     background-color: #824CFD;
 
@@ -19,4 +44,50 @@
 
   > .button-title {
     color: #824CFD;
+    }
 }
+
+.button-size-sm {
+  @include button-size(10px, 15px, 5px, 16px);
+}
+
+
+.button-size-md {
+  @include button-size(15px, 20px, 5px, 22px);
+}
+
+.button-size-lg {
+  @include button-size(25px, 25px, 10px, 28px);
+}
+
+
+//@mixin button-size2($selectors...) {
+//  @for $i from 0 to length($selectors) {
+//    #{nth($selectors, $i+1)} {
+//      $mul: $i +1;
+//      padding: 5px * $mul 10px * $mul;
+//      border-radius: 5px * $mul;
+//
+//      > .button-title {
+//      font-size: 12px * $mul;
+//      }
+//    }
+//  }
+//}
+//
+//@include button-size2(".button-size-sm", ".button-size-md", ".button-size-lg")
+//
+
+@mixin button-type($args...) {
+  @each $name, $color in meta.keywords($args) {
+    .button-type-#{$name} {
+    border: 5px solid $color;
+
+    > .button-title {
+      color: $color; 
+      }
+    }
+  }
+}
+
+@include button-type($success: #080, $error: #800, $info: #085698)
