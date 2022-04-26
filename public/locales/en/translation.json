@@ -1,0 +1,15 @@
+{
+  "lng": "english",
+  "form": {
+    "title": "log in",
+    "tab-phone": "by phone",
+    "tab-phone-label": "phone number",
+    "tab-ID": "by ID",
+    "input-up": "ID no.",
+    "input-password": "password",
+    "button-login": "log in",
+    "button-demo": "demo mode",
+    "button-forgot": "forgot your password?",
+    "button-signup": "sign up"
+  }
+}
