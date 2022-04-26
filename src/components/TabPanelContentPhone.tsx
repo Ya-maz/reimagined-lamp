@@ -1,59 +1,60 @@
 import React from "react";
 import {useForm, useFormState, SubmitHandler} from "react-hook-form";
-
-
-interface ILogInForm {
-  phone: string;
-  password: string;
-}
+import {useTranslation} from "react-i18next";
+import {Button, Form, FormGroup, FormText, Label} from "reactstrap";
+import { InputPhone } from "./InputPhone";
+import type {ILoginForm} from "../types/TabPanelInput"
+import { InputPassword } from "./InputPassword";
 
 export const TabPanelContentPhone = () => {
   const {t} = useTranslation();
 
   const {handleSubmit, control, reset, formState, setError, clearErrors} =
-    useForm<ILogInForm>({
+    useForm<ILoginForm>({
       mode: "onChange",
     });
   const {errors} = useFormState({control});
 
-  const onSubmit: SubmitHandler<ILogInForm> = (data) => {
+  const onSubmit: SubmitHandler<ILoginForm> = (data) => {
     console.log(data);
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormControl sx={{width: "100%"}} hiddenLabel variant="standard">
-        <CSLabel shrink htmlFor="bootstrap-input" aria-label="phone">
-          {t("form.tab-phone-label")}
-        </CSLabel>
-        <InputPhone
+    <>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormGroup>
+          <Label for="login"> {t("form.tab-phone-label")}</Label>
+
+          <InputPhone
+            control={control}
+            errors={errors}
+            setError={setError}
+            clearErrors={clearErrors}
+          />
+
+          <FormText>{errors.phone?.message}</FormText>
+        </FormGroup>
+        <FormGroup>
+          <Label for="password">{t("form.input-password")}</Label>
+
+          <InputPassword
           control={control}
           errors={errors}
           setError={setError}
           clearErrors={clearErrors}
         />
-      </FormControl>
-      <FormControl sx={{width: "100%"}} variant="standard">
-        <CSLabel shrink htmlFor="bootstrap-input" aria-label="password">
-          {t("form.input-password")}
-        </CSLabel>
-        <InputPassword
-          control={control}
-          errors={errors}
-          setError={setError}
-          clearErrors={clearErrors}
-        />
-      </FormControl>
-      <CSButton
-        disableRipple
-        type="submit"
-        disabled={!formState.isValid}
-        variant="contained"
-      >
+          
+          <FormText error>{errors.password?.message}</FormText>
+          {/* <Input type="password" name="password" id="password" placeholder="password placeholder" /> */}
+        </FormGroup>
+        <Button type="submit" disabled={!formState.isValid} color="primary" className="w-100">
         {t("form.button-login")}
-      </CSButton>
-    </form>
+      </Button>
+      </Form>
+
+
+    </>
   );
 };
 

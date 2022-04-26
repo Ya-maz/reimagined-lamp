@@ -5,9 +5,9 @@
     "tab-phone": "По телефону",
     "tab-phone-label": "Телефон",
     "tab-ID": "По паспорту",
-    "input-up": "телефон",
-    "input-password": "пароль",
-    "button-login": "войти",
+    "input-up": "Телефон",
+    "input-password": "Пароль",
+    "button-login": "Войти",
     "button-demo": "демо-режим",
     "button-forgot": "забыли пароль?",
     "button-signup": "зарегистрироваться"

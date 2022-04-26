@@ -31,8 +31,8 @@ export const LoginFormTabs = () => {
             {t("form.tab-ID")}
           </NavLink>
         </NavItem>
-        <LoginFormTabPanels activeTab={activeTab} />
       </Nav>
+      <LoginFormTabPanels activeTab={activeTab} />
     </div>
   );
 };

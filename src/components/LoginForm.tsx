@@ -1,8 +1,7 @@
 import React, {FC, useState} from "react";
 import {useTranslation} from "react-i18next";
 
-import { LoginFormTabs } from "./LoginFormTabs";
-import "bootstrap/dist/css/bootstrap.min.css";
+import {LoginFormTabs} from "./LoginFormTabs";
 import "./../styles/loginForm.scss";
 
 interface IProps {}
@@ -14,7 +13,7 @@ export const LoginForm: FC<IProps> = () => {
         <div className="mx-2 my-3">
           <span className="title font-weight-bold">{t("form.title")}</span>
         </div>
-        <LoginFormTabs/>
+        <LoginFormTabs />
       </div>
     </div>
   );
