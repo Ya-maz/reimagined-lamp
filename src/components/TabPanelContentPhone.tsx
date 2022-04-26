@@ -1,10 +1,12 @@
 import React from "react";
 import {useForm, useFormState, SubmitHandler} from "react-hook-form";
 import {useTranslation} from "react-i18next";
-import {Button, Form, FormGroup, FormText, Label} from "reactstrap";
+import { Button, Form, FormGroup, FormText, Label } from "reactstrap";
+
 import { InputPhone } from "./InputPhone";
 import type {ILoginForm} from "../types/TabPanelInput"
 import { InputPassword } from "./InputPassword";
+import "./../styles/tabPanelContent.scss"
 
 export const TabPanelContentPhone = () => {
   const {t} = useTranslation();
@@ -22,9 +24,9 @@ export const TabPanelContentPhone = () => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormGroup>
-          <Label for="login"> {t("form.tab-phone-label")}</Label>
+      <Form onSubmit={handleSubmit(onSubmit)} className="form-phone">
+        <FormGroup className="form-phone-input-group">
+          <Label for="login" className="label">{t("form.tab-phone-label")}</Label>
 
           <InputPhone
             control={control}
@@ -35,8 +37,8 @@ export const TabPanelContentPhone = () => {
 
           <FormText>{errors.phone?.message}</FormText>
         </FormGroup>
-        <FormGroup>
-          <Label for="password">{t("form.input-password")}</Label>
+        <FormGroup className="form-phone-input-group">
+          <Label for="password" className="label">{t("form.input-password")}</Label>
 
           <InputPassword
           control={control}
