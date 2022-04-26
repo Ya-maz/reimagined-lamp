@@ -1,19 +1,19 @@
-import React from "react";
+import React, {FC} from "react";
 import "./Button.scss";
 
-const buttonSizeClassName = {
+const buttonSizeClassName:any = {
   sm: "button-size-sm",
   md: "button-size-md",
   lg: "button-size-lg",
 };
 
-const buttonTypeClassName = {
+const buttonTypeClassName: any = {
   success: "button-type-success",
   error: "button-type-error",
   info: "button-type-info",
 };
 
-export const Button = ({
+export const Button: FC<any> = ({
   onClick,
   title,
   size = "sm",

@@ -1,12 +1,13 @@
 import React from "react";
 
-import {LoginForm} from "./components/LoginForm/LoginForm";
+import {LoginForm} from "./components/LoginForm";
 import { LanguageSwitch } from "./components/LanguageSwitchButtons";
-import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/app.scss";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <LanguageSwitch />
       <LoginForm />
     </div>

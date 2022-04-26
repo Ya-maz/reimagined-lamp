@@ -2,9 +2,9 @@
   "lng": "russian",
   "form": {
     "title": "вход",
-    "tab-phone": "по телефону",
-    "tab-phone-label": "телефон",
-    "tab-ID": "по паспорту",
+    "tab-phone": "По телефону",
+    "tab-phone-label": "Телефон",
+    "tab-ID": "По паспорту",
     "input-up": "телефон",
     "input-password": "пароль",
     "button-login": "войти",

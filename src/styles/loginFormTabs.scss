@@ -1,0 +1,33 @@
+@import "./src/styles/theme.scss";
+
+.nav-custom {
+  cursor: pointer;
+  color: $color-primary-gray;
+  border-bottom: none !important;
+  font-size: $typography-caption;
+
+  &:hover {
+    color: $color-primary-gray;
+  }
+  .nav-item-custom {
+    .nav-link-custom {
+      border: none;
+      text-decoration: none;
+      color: $color-primary-gray;
+      &:active,
+      &:hover,
+      &:focus {
+        border: none;
+        color: $color-primary-gray;
+      }
+    }
+  }
+}
+
+.activeTab {
+  border-bottom: 3px solid $color-main;
+  font-weight: 700;
+}
+.active {
+  text-decoration: none;
+}
