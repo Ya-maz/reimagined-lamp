@@ -41,7 +41,7 @@ export const InputPhoneAndLabel = ({
         {t("form.tab-phone-label")}
       </Label>
 
-      <div className="position-relative">
+      <div className="d-flex align-items-center position-relative ">
         <Controller
           control={control}
           name="phone"
@@ -58,7 +58,7 @@ export const InputPhoneAndLabel = ({
               {(inputPros) => (
                 <Input
                   innerRef={ref}
-                  className="rounded-0 position-relative"
+                  className="rounded-0 position-relative input-height"
                   {...inputPros}
                   type="tel"
                   name="login"
@@ -70,7 +70,7 @@ export const InputPhoneAndLabel = ({
           )}
         />
         {errors.phone?.message && (
-          <div className="position-absolute top-05 right-1">
+          <div className="position-absolute right-1">
             <WarningAmber size="14" fill={theme["color-system-error"]} />
           </div>
         )}

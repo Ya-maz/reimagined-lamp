@@ -47,7 +47,7 @@ export const InputPasswordAndLabel = ({
         {t("form.input-password")}
       </Label>
 
-      <div className="position-relative">
+      <div className="d-flex align-items-center position-relative ">
         <Controller
           control={control}
           name="password"
@@ -57,7 +57,7 @@ export const InputPasswordAndLabel = ({
               innerRef={ref}
               onFocus={setIsInputOnFocus!.bind(null, true)}
               onBlur={setIsInputOnFocus!.bind(null, false)}
-              className="rounded-0"
+              className="rounded-0 input-height"
               label="password"
               type={isPasswordShown ? "text" : "password"}
               aria-label="password"
@@ -71,7 +71,7 @@ export const InputPasswordAndLabel = ({
         />
         {!isCapsLockActive && (
           <div
-            className={`position-absolute top-05 right-1 ${
+            className={`position-absolute right-1 ${
               isInputOnFocus ? "on-focus" : "off-focus"
             }`}
           >
@@ -86,7 +86,7 @@ export const InputPasswordAndLabel = ({
         )}
 
         {isCapsLockActive && (
-          <div className="position-absolute top-05 right-1">
+          <div className="position-absolute right-1">
             <WarningAmber size="14" fill={theme["color-system-error"]} />
           </div>
         )}

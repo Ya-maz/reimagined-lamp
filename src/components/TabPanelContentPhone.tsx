@@ -1,11 +1,12 @@
 import React from "react";
 import {useForm, useFormState, SubmitHandler} from "react-hook-form";
 import {useTranslation} from "react-i18next";
-import {Button, Form, FormGroup, FormText} from "reactstrap";
+import {Form, FormGroup, FormText} from "reactstrap";
 
 import {InputPhoneAndLabel} from "./InputPhoneAndLabel";
 import type {ILoginForm} from "../types/TabPanelInput";
 import {InputPasswordAndLabel} from "./InputPasswordAndLabel";
+import {Button} from "./UI/Button/Button";
 import "./../styles/tabPanelContent.scss";
 
 export const TabPanelContentPhone = () => {
@@ -60,10 +61,10 @@ export const TabPanelContentPhone = () => {
       <Button
         type="submit"
         disabled={!formState.isValid}
-        className="w-100 rounded-0"
-      >
-        {t("form.button-login")}
-      </Button>
+        variant="primary"
+        size="lg"
+        title={t("form.button-login")}
+      />
     </Form>
   );
 };

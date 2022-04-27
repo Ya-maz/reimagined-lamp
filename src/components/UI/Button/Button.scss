@@ -1,91 +1,56 @@
 @use "sass:meta";
+@import "./../../../styles/theme.module.scss";
 
-@mixin button-size($padding-y, $padding-x, $border-radius, $font-size) {
-  padding: $padding-y $padding-x;
-  border-radius: $border-radius;
-
+@mixin button-size($width, $height, $font-size) {
+  width: $width;
+  height: $height;
   > .button-title {
     font-size: $font-size;
   }
 }
 
-@mixin hover {
-  &:not([disabled]):hover {
-    @content ("disabled");
-  }
-  &:hover {
-    @content ("not-disabled");
-  }
-}
 .button {
   cursor: pointer;
+  border: none;
+  border-radius: 0;
+  color: $color-primary-gray;
 
-  background-color: #fff;
-  border: 2px solid #577dfa;
-  border-radius: 5px;
-
-  @include hover() using ($type) {
-    background-color: #4944e3;
-    @if $type == "disabled" {
-      background-color: green;
-    }
-    @if $type == "not-disabled" {
-      background-color: red;
-    }
+  .button-title {
+    font-weight: 700;
+    line-height: 16px;
   }
 
-  &:active {
-    background-color: #824cfd;
-
-    > .button-title {
-      color: #4cd2fd;
-    }
-  }
-
-  > .button-title {
-    color: #824cfd;
+  &:disabled {
+    background-color: $color-main-disabled;
+    color: $color-gray-300;
   }
 }
 
 .button-size-sm {
-  @include button-size(10px, 15px, 5px, 16px);
+  @include button-size(143px, 48px, $typography-small);
 }
 
 .button-size-md {
-  @include button-size(15px, 20px, 5px, 22px);
+  @include button-size(171px, 56px, $typography-caption);
 }
 
 .button-size-lg {
-  @include button-size(25px, 25px, 10px, 28px);
+  @include button-size(343px, 56px, $typography-caption);
 }
-
-//@mixin button-size2($selectors...) {
-//  @for $i from 0 to length($selectors) {
-//    #{nth($selectors, $i+1)} {
-//      $mul: $i +1;
-//      padding: 5px * $mul 10px * $mul;
-//      border-radius: 5px * $mul;
-//
-//      > .button-title {
-//      font-size: 12px * $mul;
-//      }
-//    }
-//  }
-//}
-//
-//@include button-size2(".button-size-sm", ".button-size-md", ".button-size-lg")
-//
 
 @mixin button-type($args...) {
   @each $name, $color in meta.keywords($args) {
     .button-type-#{$name} {
-      border: 5px solid $color;
-
-      > .button-title {
-        color: $color;
-      }
+      background-color: $color;
     }
   }
 }
 
-@include button-type($success: #080, $error: #800, $info: #085698);
+@include button-type(
+  $primary: $color-main,
+  $secondary: $color-gray-400,
+  $success: $color-system-success,
+  $error: $color-system-error,
+  $info: $color-system-notification,
+  $danger: $color-system-warning
+);

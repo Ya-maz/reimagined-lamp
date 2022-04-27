@@ -30,15 +30,15 @@
     margin-bottom: 0 !important;
   }
 
-  .helper {
-    opacity: 0;
-  }
-
-  .helper-error {
-    opacity: 1;
-  }
   .text-muted {
     color: $color-system-error !important;
   }
 }
 
+.color-primary {
+  background-color: $color-main;
+}
+
+.input-height {
+  height:45px;
+}

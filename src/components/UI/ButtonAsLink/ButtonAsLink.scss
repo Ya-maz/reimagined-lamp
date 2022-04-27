@@ -1,0 +1,14 @@
+@import "./../../../styles/theme.module.scss";
+
+.button-as-link {
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  color: $color-primary-gray;
+  padding-bottom: 0;
+  border-bottom: 1px solid $color-primary-gray;
+
+  .button-as-link-title {
+    font-size: $typography-caption;
+  }
+}
