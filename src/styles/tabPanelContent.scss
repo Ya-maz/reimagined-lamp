@@ -1,11 +1,44 @@
-@import "./src/styles/theme.scss";
+@import "./src/styles/theme.module.scss";
 
 .form-phone {
-  .form-phone-input-group{
+  .form-phone-input-group {
     text-align: start;
+    margin-bottom: 0 !important;
+  }
+
+  .form-control:focus {
+    box-shadow: none !important;
+    border: 1px solid #ced4da !important;
   }
 
   .label {
-    color: #000;
+    color: $color-primary-gray;
+    font-size: $typography-small;
+  }
+
+  .off-focus {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .on-focus {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .form-label {
+    margin-bottom: 0 !important;
+  }
+
+  .helper {
+    opacity: 0;
+  }
+
+  .helper-error {
+    opacity: 1;
+  }
+  .text-muted {
+    color: $color-system-error !important;
   }
 }
+

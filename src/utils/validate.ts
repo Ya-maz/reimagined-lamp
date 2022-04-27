@@ -2,10 +2,9 @@ const REQUIRED_FIELD = "don't forget about this field";
 
 export const phoneValidation = {
   required: REQUIRED_FIELD,
-
   validate: (value: string) => {
     if (!value.match(/^([0-9\(\)\/\+ \-]*)$/)) {
-      return "ohh";
+      return "Invalid phone number";
     }
     return true;
   },

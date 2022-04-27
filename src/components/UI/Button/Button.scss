@@ -6,51 +6,50 @@
 
   > .button-title {
     font-size: $font-size;
-    }
+  }
 }
 
 @mixin hover {
   &:not([disabled]):hover {
-    @content("disabled");
+    @content ("disabled");
   }
   &:hover {
-    @content("not-disabled")
+    @content ("not-disabled");
   }
 }
 .button {
   cursor: pointer;
 
   background-color: #fff;
-  border: 2px solid #577DFA;
+  border: 2px solid #577dfa;
   border-radius: 5px;
 
   @include hover() using ($type) {
-    background-color: #4944E3;
+    background-color: #4944e3;
     @if $type == "disabled" {
       background-color: green;
     }
     @if $type == "not-disabled" {
-      background-color: red;  
+      background-color: red;
     }
   }
 
   &:active {
-    background-color: #824CFD;
+    background-color: #824cfd;
 
     > .button-title {
-      color:#4CD2FD;
+      color: #4cd2fd;
     }
   }
 
   > .button-title {
-    color: #824CFD;
-    }
+    color: #824cfd;
+  }
 }
 
 .button-size-sm {
   @include button-size(10px, 15px, 5px, 16px);
 }
-
 
 .button-size-md {
   @include button-size(15px, 20px, 5px, 22px);
@@ -59,7 +58,6 @@
 .button-size-lg {
   @include button-size(25px, 25px, 10px, 28px);
 }
-
 
 //@mixin button-size2($selectors...) {
 //  @for $i from 0 to length($selectors) {
@@ -81,13 +79,13 @@
 @mixin button-type($args...) {
   @each $name, $color in meta.keywords($args) {
     .button-type-#{$name} {
-    border: 5px solid $color;
+      border: 5px solid $color;
 
-    > .button-title {
-      color: $color; 
+      > .button-title {
+        color: $color;
       }
     }
   }
 }
 
-@include button-type($success: #080, $error: #800, $info: #085698)
+@include button-type($success: #080, $error: #800, $info: #085698);

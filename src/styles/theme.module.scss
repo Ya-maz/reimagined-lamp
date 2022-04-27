@@ -1,0 +1,40 @@
+$color-main: #ffd600;
+$color-main-hover-active: #edc700;
+$color-main-disabled: #fff176;
+
+$color-system-success: #4caf50;
+$color-system-notification: #4054b2;
+$color-system-error: #f44336;
+$color-system-warning: #ffbb33;
+
+$color-primary-yellow: #ffd600;
+$color-primary-white: #ffffff;
+$color-primary-gray: #212529;
+
+$color-secondary-yellow50: #fffde7;
+$color-secondary-yellow100: #fff59d;
+$color-secondary-yellow300: #fff176;
+
+$typography-h1: 40px;
+$typography-h2: 36px;
+$typography-h3: 32px;
+$typography-h4: 28px;
+$typography-h5: 24px;
+$typography-h6: 20px;
+$typography-subtitle: 18px;
+$typography-caption: 16px;
+$typography-small: 14px;
+
+$size-width: 620px;
+$size-height: 900px;
+
+:export {
+  color-main: $color-main;
+  color-main-hover-active:$color-main-hover-active;
+  color-main-disabled: $color-main-disabled;
+
+  color-system-success:$color-system-success;
+  color-system-notification: $color-system-notification;
+  color-system-error: $color-system-error;
+  color-system-warning: $color-system-warning;
+}

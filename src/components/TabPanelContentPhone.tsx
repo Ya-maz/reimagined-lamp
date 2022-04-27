@@ -1,12 +1,12 @@
 import React from "react";
 import {useForm, useFormState, SubmitHandler} from "react-hook-form";
 import {useTranslation} from "react-i18next";
-import { Button, Form, FormGroup, FormText, Label } from "reactstrap";
+import {Button, Form, FormGroup, FormText} from "reactstrap";
 
-import { InputPhone } from "./InputPhone";
-import type {ILoginForm} from "../types/TabPanelInput"
-import { InputPassword } from "./InputPassword";
-import "./../styles/tabPanelContent.scss"
+import {InputPhoneAndLabel} from "./InputPhoneAndLabel";
+import type {ILoginForm} from "../types/TabPanelInput";
+import {InputPasswordAndLabel} from "./InputPasswordAndLabel";
+import "./../styles/tabPanelContent.scss";
 
 export const TabPanelContentPhone = () => {
   const {t} = useTranslation();
@@ -23,40 +23,48 @@ export const TabPanelContentPhone = () => {
   };
 
   return (
-    <>
-      <Form onSubmit={handleSubmit(onSubmit)} className="form-phone">
-        <FormGroup className="form-phone-input-group">
-          <Label for="login" className="label">{t("form.tab-phone-label")}</Label>
-
-          <InputPhone
-            control={control}
-            errors={errors}
-            setError={setError}
-            clearErrors={clearErrors}
-          />
-
-          <FormText>{errors.phone?.message}</FormText>
-        </FormGroup>
-        <FormGroup className="form-phone-input-group">
-          <Label for="password" className="label">{t("form.input-password")}</Label>
-
-          <InputPassword
+    <Form onSubmit={handleSubmit(onSubmit)} className="form-phone">
+      <FormGroup className="form-phone-input-group mt-1">
+        <InputPhoneAndLabel
           control={control}
           errors={errors}
           setError={setError}
           clearErrors={clearErrors}
         />
-          
-          <FormText error>{errors.password?.message}</FormText>
-          {/* <Input type="password" name="password" id="password" placeholder="password placeholder" /> */}
-        </FormGroup>
-        <Button type="submit" disabled={!formState.isValid} color="primary" className="w-100">
+
+        <FormText
+          className={`text-muted ${
+            errors.phone?.message ? "visible" : "invisible"
+          }`}
+        >
+          {errors.phone?.message ? errors.phone?.message : "."}
+        </FormText>
+      </FormGroup>
+
+      <FormGroup className="form-phone-input-group mt-0">
+        <InputPasswordAndLabel
+          control={control}
+          errors={errors}
+          setError={setError}
+          clearErrors={clearErrors}
+        />
+
+        <FormText
+          className={`text-muted ${
+            errors.password?.message ? "visible" : "invisible"
+          }`}
+        >
+          {errors.password?.message ? errors.password?.message : "."}
+        </FormText>
+      </FormGroup>
+      <Button
+        type="submit"
+        disabled={!formState.isValid}
+        className="w-100 rounded-0"
+      >
         {t("form.button-login")}
       </Button>
-      </Form>
-
-
-    </>
+    </Form>
   );
 };
 

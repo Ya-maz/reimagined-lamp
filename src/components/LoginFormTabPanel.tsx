@@ -8,7 +8,7 @@ interface ILoginFormTabPanelsProps {
 
 export const LoginFormTabPanels = ({activeTab}: ILoginFormTabPanelsProps) => {
   return (
-    <TabContent activeTab={activeTab} className="mt-3">
+    <TabContent activeTab={activeTab} className="">
       <TabPane tabId={1}>
         <TabPanelContentPhone />
       </TabPane>
